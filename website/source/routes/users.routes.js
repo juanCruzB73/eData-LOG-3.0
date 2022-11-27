@@ -28,11 +28,11 @@ const upload = multer({storage: multer.diskStorage({destination, filename})})
 
 router.get("/registro", registro);
 router.get("/login", login); 
-router.get('/profile/:id',isLoged,profile)
+router.get('/profile',isLoged,profile)
 router.get('/logout', logout)
 router.post('/save', upload.any(), validator, save)
-router.get("/modificar/:id",isLoged,edit)
-router.put("/update/:id",upload.any(),isLoged,update)
+router.get("/modificar",isLoged,edit)
+router.put("/update",upload.any(),isLoged,update)
 router.post("/access",validatorLogin, access)
-router.delete("/delete/:id",destroy)
+router.delete("/delete",destroy)
 module.exports = router

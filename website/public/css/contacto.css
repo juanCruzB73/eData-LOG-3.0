@@ -3,6 +3,9 @@
 @import url("base.css");
 @import url("hb.css");
 
+*{
+    list-style: none;
+}
 .contacto1{
     background-color: rgb(196, 196, 196);
     display: flex;
@@ -106,7 +109,8 @@
 @media (min-width: 1200px){
     main{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        align-self: center;
         max-width:1400px
     }
     .contacto1{

@@ -6,13 +6,12 @@ const sequelize = db.sequelize;
 const{validationResult} = require("express-validator");
 
 const controller = {
-    home: (req, res) => {
+    homeLogin: (req, res) => {
+        res.render("users/login")
+    },
+    home:(req,res)=>{
         res.render("users/home")
     },
-    contacto: (req, res) => {
-        res.render("users/contacto")
-    },
-    
     detalle: (req, res) => {
         res.render("products/detalles")
     },

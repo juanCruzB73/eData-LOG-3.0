@@ -4,7 +4,6 @@
 @import url("hb.css");
 
 body{
-    background-color: rgb(196, 196, 196);
     text-align: center;
 } 
 h1{
@@ -12,10 +11,14 @@ h1{
 }
 li{
     background-color: white;
-    width: 55%;
+    width: 75%;
     margin: auto;
-    border-radius: 15px;
-    margin-bottom: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 12px;
+}
+li:hover{
+    box-shadow: 0px 0px 10px rgb(255, 248, 248)
 }
 .container-productos{
     display: flex;
@@ -69,7 +72,7 @@ margin: 1rem auto 1rem auto;
 }
 @media (min-width: 1200px){
     li{
-        width: 30%;
+        width: 25%;
         margin: 10px 10px;
     }
     .container-productos img{

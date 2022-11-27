@@ -63,3 +63,4 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`) VALUES
 
 alter table pedidos add foreign key (id_producto) references productos(id);
 alter table pedidos add foreign key (id_usuario) references usuarios(id);
+alter table pedidos add COLUMN cantidad decimal;

@@ -4,9 +4,7 @@
 @import url("hb.css");
 
 
-body{
-    background-color: #ebebeb;
-}
+
 .container-detalle{
     display: flex;
     justify-content: center;

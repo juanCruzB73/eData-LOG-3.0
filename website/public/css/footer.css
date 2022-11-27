@@ -1,8 +1,7 @@
     .contenedor{
         display: flex;
-        background-color: #ebebeb;
-        margin-top: 25vh;
-        height: 30vh;
+        background-color: #a7a5b1;
+        height: 25vh;
     }
     footer picture {
         max-width: 30%;

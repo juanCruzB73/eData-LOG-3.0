@@ -9,11 +9,11 @@ module.exports = {
         res.render("users/registro");
     },
     profile: (req, res) => {
-            db.Usuario.findByPk(req.params.id)
-            .then(resultado => {
-                res.render("users/profile", {resultado})
-            })
-          },
+        db.Usuario.findByPk(req.session.user.id)
+        .then(resultado => {
+            res.render("users/profile", {resultado})
+        })
+      },
     save: (req,res) => {
         const result = validationResult(req)
         if(!result.isEmpty()){
@@ -40,18 +40,16 @@ module.exports = {
                 data: req.body
             })
         }
-        if(req.body.rememberMe){
             res.cookie("email", req.body.email,{maxAge: 5000})
-        }
         db.Usuario.findOne({
             where:{
                 email: req.body.email
             }
         })
-        .then(()=>res.redirect("/users/profile/"+ req.params.id))
+        .then(()=>res.redirect("/home"))
     },
     edit: (req,res)=>{
-        db.Usuario.findByPk(req.params.id)
+        db.Usuario.findByPk(req.session.user.id)
         .then(usuario => {
             res.render("users/modificar", {usuario})
         })
@@ -71,7 +69,7 @@ module.exports = {
     data.apellido = req.body.apellido,
     data.email = req.body.email,
     req.files && req.files.length > 0 ? data.imagene = req.files[0].filename : null
-    db.Usuario.findByPk(req.params.id)
+    db.Usuario.findByPk(req.session.user.id)
     .then(user =>user.update(data))
             .then(()=>res.redirect("/"))
             .catch(error => console.log(error))
@@ -79,7 +77,7 @@ module.exports = {
     },
     destroy: (req,res)=>{
         db.Usuario.destroy({
-            where:{id:req.params.id}
+            where:{id:req.session.user.id}
         }).then((user)=>{
             delete req.session.user
             res.cookie("email", null,{maxAge: -1})
